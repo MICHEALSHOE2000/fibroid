@@ -96,6 +96,10 @@ display:flex;
 flex-wrap:nowrap;
 justify-content:space-between;
 }}
+.highlighted-text {
+    background-color: yellow; /* Change the color to your preferred highlight color */
+    font-weight: bold; /* Optionally, you can make the text bold */
+}
 @import 'https://fonts.googleapis.com/css?family=Roboto';
     html, body {
     }
