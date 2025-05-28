@@ -200,7 +200,36 @@ footer {
   .chat-banner:hover {
     background-color: #1ebc5a;
   }
-  
+  #visual-testimonials {
+  padding: 2rem 1rem;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+#visual-testimonials h2 {
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.testimonial-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.testimonial-item {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 .faq {
   padding: 30px 20px;
   background: #f7f4fb;
