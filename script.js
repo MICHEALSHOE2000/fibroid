@@ -43,3 +43,41 @@ document.querySelectorAll('.faq-question').forEach(btn => {
     item.classList.toggle('active');
   });
 });
+// === Fake Order Notification (Top-Right)
+const fakeOrders = [
+    "Mary from Lagos just ordered two bottles!",
+    "Ahmed from Abuja placed an order!",
+    "Chinwe from Enugu bought 2 packs!",
+    "Tolu from Ibadan just ordered the complete pack!",
+    "Fatima from Kano reordered this morning!"
+  ];
+  
+  const popup = document.getElementById('fake-order-popup');
+  
+  function showFakeOrder() {
+    popup.textContent = fakeOrders[Math.floor(Math.random() * fakeOrders.length)];
+    popup.style.opacity = '1';
+    setTimeout(() => {
+      popup.style.opacity = '0';
+    }, 5000);
+  }
+  
+  setInterval(showFakeOrder, 25000); // Every 25 seconds
+  
+  // === Fake Comment Submit - Just for realism
+  const sendBtn = document.getElementById('send-comment');
+  const input = document.getElementById('comment-input');
+  const toast = document.getElementById('comment-toast');
+  
+  if (sendBtn && input && toast) {
+    sendBtn.addEventListener('click', () => {
+      if (input.value.trim() !== '') {
+        toast.style.display = 'block';
+        input.value = '';
+        setTimeout(() => {
+          toast.style.display = 'none';
+        }, 3000);
+      }
+    });
+  }
+  
