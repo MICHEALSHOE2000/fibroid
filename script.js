@@ -1,6 +1,6 @@
 // Countdown Timer
 function countdown() {
-  const offerDate = new Date("2025-06-30T23:59:59");
+  const offerDate = new Date("2025-07-30T23:59:59");
   const now = new Date();
   const diff = offerDate - now;
 
