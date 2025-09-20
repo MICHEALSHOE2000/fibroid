@@ -335,7 +335,25 @@ stateSelect.addEventListener('change', function() {
     lgaSelect.appendChild(defaultOption);
   }
 });
-</script
+
+document.getElementById("order-form").addEventListener("submit", async function(event) {
+  event.preventDefault();
+  const form = event.target;
+
+  let response = await fetch(form.action, {
+    method: form.method,
+    body: new FormData(form),
+    headers: { 'Accept': 'application/json' }
+  });
+
+  if (response.ok) {
+    // Redirect after successful submission
+    window.location.href = "https://fibroidtreatment.xyz/tubal";
+  } else {
+    alert("Something went wrong. Please try again.");
+  }
+});
+</script>
   </section>
   <section class="faq">
     <h2>Frequently Asked Questions</h2>
