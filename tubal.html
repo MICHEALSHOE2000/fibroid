@@ -14,10 +14,13 @@
     gtag('config', 'AW-17086892946');
   </script>
 
-  <!-- Event snippet for Purchase Conversion -->
+  <!-- Event snippet for Fibroid Solution Order (with transaction_id & value) -->
   <script>
     gtag('event', 'conversion', {
-      'send_to': 'AW-17086892946/6ajfCOeHx54bEJKX1dM_'
+      'send_to': 'AW-17086892946/6ajfCOeHx54bEJKX1dM_',
+      'transaction_id': new Date().getTime().toString(), // auto unique ID
+      'value': 0.00,   // set order value if you want, e.g. 25000
+      'currency': 'NGN'
     });
   </script>
 
