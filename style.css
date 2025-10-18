@@ -381,37 +381,32 @@ footer {
     transition: opacity 0.5s ease;
     font-size: 0.95rem;
   }
-  /* Exit Popup Styles */
+  /* Exit Popup */
 #exit-popup {
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  inset: 0;
   background: rgba(0,0,0,0.6);
   display: none;
-  align-items: center;
   justify-content: center;
-  z-index: 2000;
+  align-items: center;
+  z-index: 9999;
 }
 #exit-popup .popup-content {
   background: #fff;
-  padding: 25px;
-  border-radius: 12px;
-  max-width: 400px;
   width: 90%;
+  max-width: 400px;
+  padding: 25px;
+  border-radius: 15px;
   text-align: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  animation: popIn 0.4s ease;
-}
-#exit-popup h2 {
-  color: #4e3a61;
-  margin-bottom: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  animation: fadeInUp 0.3s ease;
 }
 #exit-popup input {
   width: 100%;
   padding: 10px;
-  margin: 8px 0;
+  margin: 10px 0;
+  border-radius: 6px;
   border: 1px solid #ccc;
-  border-radius: 5px;
 }
 #exit-popup button {
   background: #f47354;
@@ -419,23 +414,20 @@ footer {
   border: none;
   padding: 12px;
   border-radius: 25px;
-  width: 100%;
-  cursor: pointer;
   font-weight: bold;
-  transition: 0.3s;
+  cursor: pointer;
+  width: 100%;
 }
 #exit-popup button:hover {
   background: #e25539;
 }
-#exit-popup .no-thanks {
-  color: #888;
+#exit-popup .skip {
   margin-top: 10px;
-  cursor: pointer;
+  color: #666;
   font-size: 0.9em;
+  cursor: pointer;
 }
-@keyframes popIn {
-  from { transform: scale(0.8); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+@keyframes fadeInUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
-
-
