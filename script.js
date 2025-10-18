@@ -95,91 +95,75 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 
-// === EXIT POPUP (Mobile + Desktop Friendly) ===
-let popupVisible = false;
-const exitPopup = document.getElementById('exit-popup');
-const skipPopup = document.getElementById('skip-popup');
-const popupForm = document.getElementById('popupForm');
+  // === EXIT POPUP (Mobile + Desktop Friendly) ===
+  let popupVisible = false;
+  const exitPopup = document.getElementById('exit-popup');
+  const skipPopup = document.getElementById('skip-popup');
+  const popupForm = document.getElementById('popupForm');
 
-// Function to show popup once
-function showPopup() {
-  if (!popupVisible && exitPopup) {
-    popupVisible = true;
-    exitPopup.style.display = 'flex';
+  function showPopup() {
+    if (!popupVisible && exitPopup) {
+      popupVisible = true;
+      exitPopup.style.display = 'flex';
+    }
   }
-}
 
-// ====== 1️⃣ Back Button Trigger ======
-(function handleBackButton() {
-  // Push fake state to prevent immediate page leave
-  history.pushState(null, null, location.href);
-
+  // Show when user tries to go back (mobile)
   window.addEventListener('popstate', function () {
-    showPopup(); // Show popup when they press back
-    // Push again so they must press twice to leave
+    showPopup();
     history.pushState(null, null, location.href);
   });
-})();
 
-// ====== 2️⃣ Tab Switch / Minimize ======
-document.addEventListener('visibilitychange', function () {
-  if (document.visibilityState === 'hidden') {
-    showPopup();
+  // Show when user switches away or minimizes
+  document.addEventListener('visibilitychange', function () {
+    if (document.visibilityState === 'hidden') {
+      showPopup();
+    }
+  });
+
+  // Fallback: show after 25s idle
+  let idleTimer;
+  function resetIdle() {
+    clearTimeout(idleTimer);
+    idleTimer = setTimeout(showPopup, 25000);
   }
-});
+  ['scroll', 'touchstart', 'mousemove', 'keydown'].forEach(e =>
+    document.addEventListener(e, resetIdle)
+  );
+  resetIdle();
 
-// ====== 3️⃣ Idle Time Triggers ======
-let idleTimer;
-let totalIdleTimer;
-
-// Reset both timers when there's activity
-function resetIdleTimers() {
-  clearTimeout(idleTimer);
-  clearTimeout(totalIdleTimer);
-
-  // Trigger popup after 25s of current inactivity
-  idleTimer = setTimeout(() => showPopup(), 25000);
-
-  // Trigger popup after 1 minute (no interactions at all)
-  totalIdleTimer = setTimeout(() => showPopup(), 60000);
-}
-
-// Listen for any user activity to reset timers
-['scroll', 'touchstart', 'mousemove', 'keydown', 'click'].forEach(evt =>
-  document.addEventListener(evt, resetIdleTimers)
-);
-resetIdleTimers();
-
-// ====== 4️⃣ Close popup ======
-if (skipPopup) {
-  skipPopup.addEventListener('click', () => {
-    exitPopup.style.display = 'none';
-  });
-}
-
-// ====== 5️⃣ Handle popup form submission ======
-if (popupForm) {
-  popupForm.addEventListener('submit', async function (e) {
-    e.preventDefault();
-    const phone = document.getElementById('popup-phone').value.trim();
-    const phoneRegex = /^\d{11}$/;
-
-    if (!phoneRegex.test(phone)) {
-      alert("Phone number must be exactly 11 digits.");
-      return;
-    }
-
-    const response = await fetch(this.action, {
-      method: this.method,
-      body: new FormData(this),
-      headers: { 'Accept': 'application/json' }
-    });
-
-    if (response.ok) {
-      alert("✅ Thank you! Your free fibroid PDF will be sent shortly.");
+  // Close popup
+  if (skipPopup) {
+    skipPopup.addEventListener('click', () => {
       exitPopup.style.display = 'none';
-    } else {
-      alert("Something went wrong. Please try again.");
-    }
-  });
-}
+    });
+  }
+
+  // Handle popup form submit
+  if (popupForm) {
+    popupForm.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const phone = document.getElementById('popup-phone').value.trim();
+      const phoneRegex = /^\d{11}$/;
+
+      if (!phoneRegex.test(phone)) {
+        alert("Phone number must be exactly 11 digits.");
+        return;
+      }
+
+      const response = await fetch(this.action, {
+        method: this.method,
+        body: new FormData(this),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        alert("✅ Thank you! Your free fibroid PDF will be sent shortly.");
+        exitPopup.style.display = 'none';
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
+    });
+  }
+
+}); // END DOMContentLoaded
