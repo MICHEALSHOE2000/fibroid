@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thank You - Fibroid Solution</title>
 
-  <!-- Global site tag (gtag.js) - Google Ads: 17086892946 -->
+  <!-- Google Ads Tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17086892946"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -14,15 +14,22 @@
     gtag('config', 'AW-17086892946');
   </script>
 
-  <!-- Event snippet for Fibroid Solution Order (with transaction_id & value) -->
+  <!-- Conversion Event -->
   <script>
-    gtag('event', 'conversion', {
-      'send_to': 'AW-17086892946/6ajfCOeHx54bEJKX1dM_',
-      'transaction_id': new Date().getTime().toString(), // auto unique ID
-      'value': 0.00,   // set order value if you want, e.g. 25000
-      'currency': 'NGN'
+    document.addEventListener('DOMContentLoaded', function() {
+      gtag('event', 'conversion', {
+        'send_to': 'AW-17086892946/6ajfCOeHx54bEJKX1dM_',
+        'transaction_id': new Date().getTime().toString(), // unique ID
+        'value': 0.00, // optional: replace with actual order value
+        'currency': 'NGN'
+      });
     });
   </script>
+
+</head>
+
+
+
 
   <style>
     body {
