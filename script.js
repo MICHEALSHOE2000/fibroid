@@ -108,38 +108,58 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Show when user tries to go back (mobile)
-  window.addEventListener('popstate', function () {
-    showPopup();
+  // === 1️⃣ Show when user presses back button ===
+  (function handleBackButton() {
+    // Push fake history entry so pressing back first triggers popup
     history.pushState(null, null, location.href);
-  });
+    window.addEventListener('popstate', function () {
+      showPopup();
+      // Push state again so user must press back twice to leave
+      history.pushState(null, null, location.href);
+    });
+  })();
 
-  // Show when user switches away or minimizes
+
+  // === 2️⃣ Show when user switches away or minimizes ===
   document.addEventListener('visibilitychange', function () {
     if (document.visibilityState === 'hidden') {
       showPopup();
     }
   });
 
-  // Fallback: show after 25s idle
+  // === 3️⃣ Show after 25 seconds of inactivity AND 1 minute total ===
   let idleTimer;
-  function resetIdle() {
-    clearTimeout(idleTimer);
-    idleTimer = setTimeout(showPopup, 25000);
-  }
-  ['scroll', 'touchstart', 'mousemove', 'keydown'].forEach(e =>
-    document.addEventListener(e, resetIdle)
-  );
-  resetIdle();
+  let totalIdleTimer;
 
-  // Close popup
+  function resetIdleTimers() {
+    clearTimeout(idleTimer);
+    clearTimeout(totalIdleTimer);
+
+    // 25 seconds of inactivity
+    idleTimer = setTimeout(() => {
+      showPopup();
+    }, 25000);
+
+    // 1 minute total inactivity (no matter what)
+    totalIdleTimer = setTimeout(() => {
+      showPopup();
+    }, 60000);
+  }
+
+  ['scroll', 'touchstart', 'mousemove', 'keydown', 'click'].forEach(evt =>
+    document.addEventListener(evt, resetIdleTimers)
+  );
+  resetIdleTimers();
+
+
+  // === Close popup ===
   if (skipPopup) {
     skipPopup.addEventListener('click', () => {
       exitPopup.style.display = 'none';
     });
   }
 
-  // Handle popup form submit
+  // === Handle popup form submit ===
   if (popupForm) {
     popupForm.addEventListener('submit', async function (e) {
       e.preventDefault();
