@@ -80,4 +80,63 @@ const fakeOrders = [
       }
     });
   }
-  
+  // Exit Intent Popup Logic
+let popupShown = false;
+const popup = document.getElementById('exit-popup');
+const closePopup = document.getElementById('close-popup');
+const popupForm = document.getElementById('popupForm');
+
+// Detect exit intent (desktop)
+document.addEventListener('mouseout', (e) => {
+  if (e.clientY < 10 && !popupShown) {
+    popupShown = true;
+    popup.style.display = 'flex';
+  }
+});
+
+// Detect inactivity (mobile fallback)
+let idleTimer;
+function resetIdleTimer() {
+  clearTimeout(idleTimer);
+  idleTimer = setTimeout(() => {
+    if (!popupShown) {
+      popupShown = true;
+      popup.style.display = 'flex';
+    }
+  }, 25000);
+}
+['mousemove', 'keydown', 'scroll', 'touchstart'].forEach(evt =>
+  document.addEventListener(evt, resetIdleTimer)
+);
+resetIdleTimer();
+
+// Close popup
+closePopup.addEventListener('click', () => {
+  popup.style.display = 'none';
+});
+
+// Handle form submission
+popupForm.addEventListener('submit', async function (event) {
+  event.preventDefault();
+  const phone = document.getElementById('popup-phone').value.trim();
+  const phoneRegex = /^\d{11}$/;
+  if (!phoneRegex.test(phone)) {
+    alert("Phone number must be 11 digits.");
+    return false;
+  }
+
+  const response = await fetch(this.action, {
+    method: this.method,
+    body: new FormData(this),
+    headers: { 'Accept': 'application/json' }
+  });
+
+  if (response.ok) {
+    alert("Thank you! Your free copy will be sent to your WhatsApp or email.");
+    popup.style.display = 'none';
+  } else {
+    alert("Something went wrong. Please try again.");
+  }
+});
+
+
