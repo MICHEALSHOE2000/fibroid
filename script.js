@@ -80,49 +80,58 @@ const fakeOrders = [
       }
     });
   }
-  // Exit Intent Popup Logic
-let popupShown = false;
-const popup = document.getElementById('exit-popup');
-const closePopup = document.getElementById('close-popup');
+  // === Exit Popup (Mobile Friendly) ===
+let popupVisible = false;
+const exitPopup = document.getElementById('exit-popup');
+const skipPopup = document.getElementById('skip-popup');
 const popupForm = document.getElementById('popupForm');
 
-// Detect exit intent (desktop)
-document.addEventListener('mouseout', (e) => {
-  if (e.clientY < 10 && !popupShown) {
-    popupShown = true;
-    popup.style.display = 'flex';
+// Function to show popup once
+function showPopup() {
+  if (!popupVisible) {
+    popupVisible = true;
+    exitPopup.style.display = 'flex';
+  }
+}
+
+// Show popup when user tries to go back (mobile)
+window.addEventListener('popstate', function() {
+  showPopup();
+  history.pushState(null, null, location.href); // Prevent immediate back exit
+});
+
+// Show popup when user switches away or minimizes
+document.addEventListener('visibilitychange', function() {
+  if (document.visibilityState === 'hidden') {
+    showPopup();
   }
 });
 
-// Detect inactivity (mobile fallback)
+// Fallback: show after 25 seconds of inactivity
 let idleTimer;
-function resetIdleTimer() {
+function resetIdle() {
   clearTimeout(idleTimer);
-  idleTimer = setTimeout(() => {
-    if (!popupShown) {
-      popupShown = true;
-      popup.style.display = 'flex';
-    }
-  }, 25000);
+  idleTimer = setTimeout(() => showPopup(), 25000);
 }
-['mousemove', 'keydown', 'scroll', 'touchstart'].forEach(evt =>
-  document.addEventListener(evt, resetIdleTimer)
+['scroll', 'touchstart', 'mousemove', 'keydown'].forEach(e =>
+  document.addEventListener(e, resetIdle)
 );
-resetIdleTimer();
+resetIdle();
 
 // Close popup
-closePopup.addEventListener('click', () => {
-  popup.style.display = 'none';
+skipPopup.addEventListener('click', () => {
+  exitPopup.style.display = 'none';
 });
 
-// Handle form submission
-popupForm.addEventListener('submit', async function (event) {
-  event.preventDefault();
+// Handle popup form
+popupForm.addEventListener('submit', async function (e) {
+  e.preventDefault();
   const phone = document.getElementById('popup-phone').value.trim();
   const phoneRegex = /^\d{11}$/;
+
   if (!phoneRegex.test(phone)) {
-    alert("Phone number must be 11 digits.");
-    return false;
+    alert("Phone number must be exactly 11 digits.");
+    return;
   }
 
   const response = await fetch(this.action, {
@@ -132,11 +141,9 @@ popupForm.addEventListener('submit', async function (event) {
   });
 
   if (response.ok) {
-    alert("Thank you! Your free copy will be sent to your WhatsApp or email.");
-    popup.style.display = 'none';
+    alert("✅ Thank you! Your free fibroid PDF will be sent shortly.");
+    exitPopup.style.display = 'none';
   } else {
     alert("Something went wrong. Please try again.");
   }
 });
-
-
