@@ -138,12 +138,12 @@ document.addEventListener("DOMContentLoaded", function () {
     // 25 seconds of inactivity
     idleTimer = setTimeout(() => {
       showPopup();
-    }, 25000);
+    }, 45000);
 
     // 1 minute total inactivity (no matter what)
     totalIdleTimer = setTimeout(() => {
       showPopup();
-    }, 60000);
+    }, 120000);
   }
 
   ['scroll', 'touchstart', 'mousemove', 'keydown', 'click'].forEach(evt =>
@@ -187,3 +187,4 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 }); // END DOMContentLoaded
+
