@@ -484,22 +484,62 @@ document.getElementById("orderForm").addEventListener("submit", async function(e
 <!-- Exit Popup (Mobile Friendly) -->
 <div id="exit-popup">
   <div class="popup-content">
-    <h2>🎁 Free Guide: Do’s & Don’ts of Fibroid Treatment</h2>
-    <p>Discover foods to eat, avoid, and natural ways to shrink fibroid without surgery.</p>
 
-    <form id="popupForm" action="https://formspree.io/f/xzzrvwaa" method="POST">
+    <h2>🔥 One-Time Discount Offer (Today Only!)</h2>
+    <p class="subtitle">Get the Complete Fibroid Solution at an unbelievable discount ONLY if you act now.</p>
+
+    <!-- Countdown -->
+    <div id="countdown" class="countdown">Offer ends in <span id="timer">10:00</span> minutes</div>
+
+    <!-- Pricing Section -->
+    <div class="pricing-box">
+      <p><strong>1 Bottle:</strong> <span class="old">₦25,000</span> <span class="new">₦20,000</span></p>
+      <p><strong>2 Bottles:</strong> <span class="old">₦50,000</span> <span class="new">₦40,000</span></p>
+      <p><strong>3 Bottles:</strong> <span class="old">₦75,000</span> <span class="new best">₦50,000</span> <span class="tag">BEST DEAL</span></p>
+    </div>
+
+    <form id="popupForm" action="https://formspree.io/f/mjknrlqw" method="POST">
+      <label for="qty">Select Quantity</label>
+      <select id="qty" name="quantity" required>
+        <option value="">Choose...</option>
+        <option value="1 Bottle - ₦20,000">1 Bottle - ₦20,000</option>
+        <option value="2 Bottles - ₦40,000">2 Bottles - ₦40,000</option>
+        <option value="3 Bottles - ₦50,000">3 Bottles - ₦50,000 (Best Deal)</option>
+      </select>
+
       <label for="popup-phone">Phone Number</label>
       <input type="tel" id="popup-phone" name="phone" placeholder="08012345678" pattern="\d{11}" minlength="11" maxlength="11" required>
 
-      <label for="popup-email">Email (Optional)</label>
-      <input type="email" id="popup-email" name="email" placeholder="Enter your email (optional)">
+      <label for="popup-name">Name</label>
+      <input type="text" id="popup-name" name="name" placeholder="Your Full Name" required>
 
-      <button type="submit">📥 Get Free PDF</button>
+      <button type="submit" class="buy-btn">🔥 Claim Discount Now</button>
     </form>
 
     <p id="skip-popup" class="skip">No thanks, continue browsing</p>
   </div>
 </div>
+
+<script>
+  // COUNTDOWN TIMER (10 minutes)
+  let timeLeft = 600;
+  const timerDisplay = document.getElementById("timer");
+
+  const countdown = setInterval(() => {
+    let minutes = Math.floor(timeLeft / 60);
+    let seconds = timeLeft % 60;
+    timerDisplay.textContent = 
+      `${minutes}:${seconds < 10 ? "0" + seconds : seconds}`;
+    timeLeft--;
+
+    if (timeLeft < 0) {
+      clearInterval(countdown);
+      timerDisplay.textContent = "Expired";
+    }
+  }, 1000);
+</script>
+
+
 <script src="script.js" defer></script>
 
 </body>
