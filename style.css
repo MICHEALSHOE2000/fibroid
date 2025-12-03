@@ -382,51 +382,34 @@ footer {
     font-size: 0.95rem;
   }
   /* Exit Popup */
+/* --- POPUP CONTAINER FIX --- */
 #exit-popup {
   position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
-  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.65);
+  display: none; /* keep your existing JS trigger */
   justify-content: center;
   align-items: center;
+  padding: 15px;
   z-index: 9999;
 }
-#exit-popup .popup-content {
+
+/* --- POPUP BOX --- */
+.popup-content {
   background: #fff;
-  width: 90%;
-  max-width: 400px;
-  padding: 25px;
-  border-radius: 15px;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  animation: fadeInUp 0.3s ease;
-}
-#exit-popup input {
+  max-width: 420px;
   width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 12px;
+  max-height: 90vh;       /* THIS SAVES YOU */
+  overflow-y: auto;       /* allows scrolling inside */
+  box-shadow: 0 5px 25px rgba(0,0,0,0.2);
 }
-#exit-popup button {
-  background: #f47354;
-  color: white;
-  border: none;
-  padding: 12px;
-  border-radius: 25px;
-  font-weight: bold;
-  cursor: pointer;
-  width: 100%;
-}
-#exit-popup button:hover {
-  background: #e25539;
-}
-#exit-popup .skip {
-  margin-top: 10px;
-  color: #666;
-  font-size: 0.9em;
-  cursor: pointer;
-}
+
+/* --- PACKAGE OPTIONS --- */
 .package-options {
   display: flex;
   flex-direction: column;
@@ -441,8 +424,8 @@ footer {
   border: 2px solid #ccc;
   padding: 12px;
   border-radius: 10px;
-  cursor: pointer;
   background: #f8f8f8;
+  cursor: pointer;
   transition: 0.2s;
 }
 
@@ -455,13 +438,14 @@ footer {
   background: #ffecec;
 }
 
-.pkg-box.best {
-  border-color: #2e7d32;
-  background: #e8f5e9;
+.best-box {
+  border-color: #2e7d32 !important;
+  background: #e8f5e9 !important;
 }
 
 @keyframes fadeInUp {
   from { transform: translateY(20px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
+
 
