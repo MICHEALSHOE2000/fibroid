@@ -512,12 +512,34 @@ document.getElementById("orderForm").addEventListener("submit", async function(e
       <label for="popup-phone">Phone Number</label>
       <input type="tel" id="popup-phone" name="phone" placeholder="08012345678" pattern="\d{11}" minlength="11" maxlength="11" required>
 
-      <label for="popup-package">Select Your Package</label>
-      <select id="popup-package" name="package" required>
-        <option value="">Choose Package</option>
-        <option value="1 Bottle - ₦20,000">1 Bottle — ₦20,000</option>
-        <option value="2 Bottles - ₦40,000">2 Bottles — ₦40,000</option>
-        <option value="3 Bottles - ₦50,000">3 Bottles — ₦50,000 (Best Deal)</option>
+      <label style="font-weight:bold; margin-top:10px;">Select Your Package</label>
+
+<div class="package-options">
+  <label class="pkg">
+    <input type="radio" name="package" value="1 Bottle - ₦20,000" required>
+    <div class="pkg-box">
+      <h4>1 Bottle</h4>
+      <p><span style="text-decoration: line-through;">₦30,000</span> → <strong>₦20,000</strong></p>
+    </div>
+  </label>
+
+  <label class="pkg">
+    <input type="radio" name="package" value="2 Bottles - ₦40,000">
+    <div class="pkg-box">
+      <h4>2 Bottles</h4>
+      <p><span style="text-decoration: line-through;">₦60,000</span> → <strong>₦40,000</strong></p>
+    </div>
+  </label>
+
+  <label class="pkg">
+    <input type="radio" name="package" value="3 Bottles - ₦50,000 (Best Deal)">
+    <div class="pkg-box best">
+      <h4>3 Bottles (BEST DEAL)</h4>
+      <p><span style="text-decoration: line-through;">₦75,000</span> → <strong>₦50,000</strong></p>
+    </div>
+  </label>
+</div>
+
       </select>
 
       <button type="submit">🛒 Claim Discount Now</button>
