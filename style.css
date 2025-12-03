@@ -380,72 +380,116 @@ footer {
     opacity: 0;
     transition: opacity 0.5s ease;
     font-size: 0.95rem;
-  }
-  /* Exit Popup */
-/* --- POPUP CONTAINER FIX --- */
 #exit-popup {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.65);
-  display: none; /* keep your existing JS trigger */
+  background: rgba(0,0,0,0.7);
+  display: none; /* set to flex to preview */
   justify-content: center;
   align-items: center;
-  padding: 15px;
   z-index: 9999;
 }
 
-/* --- POPUP BOX --- */
 .popup-content {
   background: #fff;
+  width: 90%;
   max-width: 420px;
-  width: 100%;
-  padding: 20px;
+  padding: 25px;
   border-radius: 12px;
-  max-height: 90vh;       /* THIS SAVES YOU */
-  overflow-y: auto;       /* allows scrolling inside */
-  box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  animation: popupFade 0.4s ease-in-out;
+  text-align: center;
+  font-family: Arial, sans-serif;
 }
 
-/* --- PACKAGE OPTIONS --- */
-.package-options {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+@keyframes popupFade {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 
-.pkg input {
-  display: none;
+.popup-content h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #d32f2f;
 }
 
-.pkg-box {
-  border: 2px solid #ccc;
-  padding: 12px;
+.popup-content p {
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+
+.offer-box {
+  background: #fff5f5;
+  border: 1px solid #ffdcdc;
+  padding: 15px;
+  margin-bottom: 20px;
   border-radius: 10px;
-  background: #f8f8f8;
+}
+
+.offer-box h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #b71c1c;
+}
+
+.offer-box ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+.offer-box ul li {
+  padding: 8px 0;
+  font-size: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.offer-box ul li:last-child {
+  border-bottom: none;
+}
+
+input, select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  background: #d32f2f;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
-  transition: 0.2s;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
-.pkg-box:hover {
-  border-color: #d32f2f;
+button:hover {
+  background: #b71c1c;
 }
 
-.pkg input:checked + .pkg-box {
-  border-color: #d32f2f;
-  background: #ffecec;
+.skip {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #555;
+  cursor: pointer;
+  text-decoration: underline;
 }
 
-.best-box {
-  border-color: #2e7d32 !important;
-  background: #e8f5e9 !important;
+#countdown {
+  font-size: 18px;
+  font-weight: bold;
+  color: #d32f2f;
+  margin-bottom: 15px;
 }
-
-@keyframes fadeInUp {
-  from { transform: translateY(20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-
