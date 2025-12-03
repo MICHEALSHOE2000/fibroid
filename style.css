@@ -427,7 +427,41 @@ footer {
   font-size: 0.9em;
   cursor: pointer;
 }
+.package-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pkg input {
+  display: none;
+}
+
+.pkg-box {
+  border: 2px solid #ccc;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  background: #f8f8f8;
+  transition: 0.2s;
+}
+
+.pkg-box:hover {
+  border-color: #d32f2f;
+}
+
+.pkg input:checked + .pkg-box {
+  border-color: #d32f2f;
+  background: #ffecec;
+}
+
+.pkg-box.best {
+  border-color: #2e7d32;
+  background: #e8f5e9;
+}
+
 @keyframes fadeInUp {
   from { transform: translateY(20px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
+
