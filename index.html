@@ -484,63 +484,51 @@ document.getElementById("orderForm").addEventListener("submit", async function(e
 <div id="exit-popup">
   <div class="popup-content">
     <h2>🎉 ONE-TIME OFFER: Get Fibroid Solution at Massive Discount!</h2>
-    <p>Special discount available ONLY now. Get the herbal Fibroid Solution that helps shrink fibroid naturally without surgery.</p>
+    <p>Special discount available ONLY today. Natural herbal formula that helps shrink fibroid without surgery.</p>
 
     <div class="offer-box">
-      <h3>🔥 Today Only — Discounted Prices</h3>
+      <h3>🔥 Discounted Prices Today Only</h3>
       <ul>
-        <li>
-          <strong>1 Bottle</strong> — <span style="text-decoration: line-through;">₦30,000</span> 
-          <span style="color:#d32f2f; font-weight:bold;">₦20,000</span>
-        </li>
-        <li>
-          <strong>2 Bottles</strong> — <span style="text-decoration: line-through;">₦60,000</span> 
-          <span style="color:#d32f2f; font-weight:bold;">₦40,000</span>
-        </li>
-        <li>
-          <strong>3 Bottles</strong> — <span style="text-decoration: line-through;">₦75,000</span> 
-          <span style="color:#d32f2f; font-weight:bold;">₦50,000</span>
-          <span style="color:green; font-weight:bold;">(BEST DEAL)</span>
-        </li>
+        <li><strong>1 Bottle</strong> — <s>₦30,000</s> <span class="new">₦20,000</span></li>
+        <li><strong>2 Bottles</strong> — <s>₦60,000</s> <span class="new">₦40,000</span></li>
+        <li><strong>3 Bottles</strong> — <s>₦75,000</s> <span class="new">₦50,000</span> <span class="best">(BEST DEAL)</span></li>
       </ul>
     </div>
 
     <form id="popupForm" action="https://formspree.io/f/xzzrvwaa" method="POST">
-      <label for="popup-name">Full Name</label>
-      <input type="text" id="popup-name" name="name" required>
+      <label>Full Name</label>
+      <input type="text" name="name" required>
 
-      <label for="popup-phone">Phone Number</label>
-      <input type="tel" id="popup-phone" name="phone" placeholder="08012345678" pattern="\d{11}" minlength="11" maxlength="11" required>
+      <label>Phone Number</label>
+      <input type="tel" name="phone" placeholder="08012345678" pattern="\d{11}" minlength="11" maxlength="11" required>
 
-      <label style="font-weight:bold; margin-top:10px;">Select Your Package</label>
+      <label>Select Your Package</label>
 
-<div class="package-options">
-  <label class="pkg">
-    <input type="radio" name="package" value="1 Bottle - ₦20,000" required>
-    <div class="pkg-box">
-      <h4>1 Bottle</h4>
-      <p><span style="text-decoration: line-through;">₦30,000</span> → <strong>₦20,000</strong></p>
-    </div>
-  </label>
+      <div class="package-options">
+        <label class="pkg">
+          <input type="radio" name="package" value="1 Bottle - ₦20,000" required>
+          <div class="pkg-box">
+            <h4>1 Bottle</h4>
+            <p><s>₦30,000</s> → <strong>₦20,000</strong></p>
+          </div>
+        </label>
 
-  <label class="pkg">
-    <input type="radio" name="package" value="2 Bottles - ₦40,000">
-    <div class="pkg-box">
-      <h4>2 Bottles</h4>
-      <p><span style="text-decoration: line-through;">₦60,000</span> → <strong>₦40,000</strong></p>
-    </div>
-  </label>
+        <label class="pkg">
+          <input type="radio" name="package" value="2 Bottles - ₦40,000">
+          <div class="pkg-box">
+            <h4>2 Bottles</h4>
+            <p><s>₦60,000</s> → <strong>₦40,000</strong></p>
+          </div>
+        </label>
 
-  <label class="pkg">
-    <input type="radio" name="package" value="3 Bottles - ₦50,000 (Best Deal)">
-    <div class="pkg-box best">
-      <h4>3 Bottles (BEST DEAL)</h4>
-      <p><span style="text-decoration: line-through;">₦75,000</span> → <strong>₦50,000</strong></p>
-    </div>
-  </label>
-</div>
-
-      </select>
+        <label class="pkg">
+          <input type="radio" name="package" value="3 Bottles - ₦50,000 (Best Deal)">
+          <div class="pkg-box best-box">
+            <h4>3 Bottles (BEST DEAL)</h4>
+            <p><s>₦75,000</s> → <strong>₦50,000</strong></p>
+          </div>
+        </label>
+      </div>
 
       <button type="submit">🛒 Claim Discount Now</button>
     </form>
@@ -548,6 +536,7 @@ document.getElementById("orderForm").addEventListener("submit", async function(e
     <p id="skip-popup" class="skip">No thanks, continue browsing</p>
   </div>
 </div>
+
 
 <script src="script.js" defer></script>
 
