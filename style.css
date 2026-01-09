@@ -350,7 +350,42 @@ footer {
     font-weight: bold;
     cursor: pointer;
   }
-  
+  .trust-strip {
+  background: linear-gradient(90deg, #fefefe, #f9fbff);
+  padding: 15px 10px;
+  border-top: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.trust-item {
+  background: #ffffff;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #222;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+  white-space: nowrap;
+}
+
+.trust-guarantee {
+  width: 100%;
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #1b5e20;
+  background: #e8f5e9;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
   .toast {
     display: none;
     background-color: #4caf50;
@@ -493,4 +528,5 @@ input, select {
   from { transform: translateY(20px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
+
 
