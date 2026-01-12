@@ -230,39 +230,44 @@ footer {
   display: block;
 }
 
-.faq {
-  padding: 30px 20px;
-  background: #f7f4fb;
+.faq-section {
+  background: #f9fbff;
+  padding: 60px 20px;
+  font-family: Arial, sans-serif;
 }
-.faq h2 {
-  margin-bottom: 20px;
+
+.faq-container {
+  max-width: 900px;
+  margin: auto;
 }
+
+.faq-container h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 40px;
+  color: #222;
+}
+
 .faq-item {
-  margin-bottom: 15px;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
 }
-.faq-question {
-  background: #4e3a61;
-  color: white;
-  border: none;
-  padding: 12px;
-  width: 100%;
-  font-size: 1em;
-  text-align: left;
-  cursor: pointer;
-  border-radius: 5px;
+
+.faq-item h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #1b5e20;
 }
-.faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease;
-  background: #fff;
-  padding: 0 12px;
-  border-left: 4px solid #f47354;
+
+.faq-item p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #444;
 }
-.faq-item.active .faq-answer {
-  max-height: 200px;
-  padding: 10px 12px;
-}
+
 .how-it-works {
   background: #f8fafc;
   padding: 60px 20px;
@@ -671,6 +676,7 @@ input, select {
   from { transform: translateY(20px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
+
 
 
 
