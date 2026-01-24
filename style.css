@@ -1,8 +1,4 @@
 
-input, textarea {
-  user-select: text;
-}
-
 /* Global Styles */
 body {
   margin: 0;
@@ -954,6 +950,22 @@ input, select {
 @keyframes fadeInUp {
   from { transform: translateY(20px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
+}
+
+/* Disable text selection for page content */
+body *:not(input):not(textarea) {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Allow text selection inside forms explicitly */
+input, textarea, select {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
 }
 
 
