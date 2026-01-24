@@ -55,6 +55,27 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+// === SELF DIAGNOSIS LOGIC ===
+const diagnosisForm = document.getElementById("diagnosisForm");
+const diagnosisResult = document.getElementById("diagnosisResult");
+
+if (diagnosisForm && diagnosisResult) {
+  diagnosisForm.addEventListener("change", () => {
+    const selects = diagnosisForm.querySelectorAll("select");
+    let allAnswered = true;
+
+    selects.forEach(select => {
+      if (select.value === "") {
+        allAnswered = false;
+      }
+    });
+
+    if (allAnswered) {
+      diagnosisResult.style.display = "block";
+      diagnosisResult.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  });
+}
 
   // === Fake Order Notification ===
   const fakeOrders = [
@@ -187,4 +208,5 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 }); // END DOMContentLoaded
+
 
