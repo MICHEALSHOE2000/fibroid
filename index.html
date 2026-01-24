@@ -21,14 +21,32 @@
   <!-- WhatsApp Chat Banner -->
   <a href="https://api.whatsapp.com/send?phone=2349037925799&text=Hi%20Dr.%20Micheal,%20I%20want%20to%20order%20the%20Utero%20Clear." 
      class="chat-banner" target="_blank">
-    💬 Click here to <strong>Order on Whatsapp</strong>
+    <strong>💬 Chat With Dr Micheal</strong>
   </a>
 
   <!-- Sticky CTA Button (Mobile) -->
   <div id="sticky-cta">
     <a href="#order-form">Order Utero Clear Now</a>
   </div>
-
+  <p class="updated-date">
+    Last Updated: <span id="autoDate"></span>
+  </p>
+  
+  <script>
+    (function () {
+      const el = document.getElementById("autoDate");
+      if (!el) return;
+  
+      const d = new Date();
+      const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  
+      el.textContent =
+        d.getDate() + " " +
+        months[d.getMonth()] + " " +
+        d.getFullYear();
+    })();
+  </script>
+  
   <!-- Hero Section -->
   <header class="hero">
     <h1>Shrink Fibroids, Clear Ovarian Cysts & Open Blocked Fallopian Tubes Naturally — Without Surgery</h1>
@@ -166,6 +184,62 @@
   </div>
 </section>
 
+<!-- Self Diagnosis Section -->
+<section class="self-diagnosis">
+  <h2>Check If This Will Work For You</h2>
+  <p class="sd-subtitle">
+    Answer these quick questions to see if this protocol is suitable for your condition.
+  </p>
+
+  <form id="diagnosisForm">
+    
+    <!-- Age -->
+    <label>Age Range</label>
+    <select required>
+      <option value="">Select age range</option>
+      <option>Under 30</option>
+      <option>30 – 39</option>
+      <option>40 – 49</option>
+      <option>50+</option>
+    </select>
+
+    <!-- Fibroid Size -->
+    <label>Fibroid Size (from scan)</label>
+    <select required>
+      <option value="">Select fibroid size</option>
+      <option>Not sure</option>
+      <option>Below 4cm</option>
+      <option>4 – 7cm</option>
+      <option>8cm and above</option>
+    </select>
+
+    <!-- Symptoms -->
+    <label>Symptoms (Select all that apply)</label>
+    <div class="checkbox-group">
+      <label><input type="checkbox"> Heavy bleeding</label>
+      <label><input type="checkbox"> Pelvic pain</label>
+      <label><input type="checkbox"> Bloated stomach</label>
+      <label><input type="checkbox"> Infertility</label>
+      <label><input type="checkbox"> Frequent urination</label>
+    </div>
+
+    <!-- Previous Treatments -->
+    <label>Previous Treatments Tried</label>
+    <select required>
+      <option value="">Select option</option>
+      <option>Hospital drugs</option>
+      <option>Herbal remedies</option>
+      <option>Surgery was suggested</option>
+      <option>Nothing yet</option>
+    </select>
+
+    <!-- Result -->
+    <div id="diagnosisResult" class="diagnosis-result">
+      ✅ Based on your answers, the Utero Clear will be suitable for you.
+    </div>
+
+  </form>
+</section>
 
   <!-- Root Cause Comparison -->
   <div style="margin-top: 50px; text-align: center;">
@@ -241,6 +315,63 @@
       <strong>Mrs Odunayo, Kano</strong>
     </div>
   </section>
+<!-- Treatment Plans Section -->
+<section class="treatment-plans">
+  <h2>✅ Treatment Plans</h2>
+  <p class="plans-subtitle">
+    Choose the plan that matches your fibroid condition and treatment goal.
+  </p>
+
+  <div class="plans-grid">
+
+    <!-- Starter Plan -->
+    <div class="plan-card">
+      <h3>Starter Plan</h3>
+      <p class="plan-desc">Symptom relief & early support</p>
+      <div class="plan-price">₦25,000</div>
+      <p class="plan-qty">1 Bottle</p>
+      <ul>
+        <li>Helps reduce pain & heavy bleeding</li>
+        <li>Supports hormonal balance</li>
+        <li>Best for mild or newly detected fibroids</li>
+      </ul>
+    </div>
+
+    <!-- Reduction Plan -->
+    <div class="plan-card">
+      <h3>Reduction Plan</h3>
+      <p class="plan-desc">Shrink fibroids progressively</p>
+      <div class="plan-price">₦45,000</div>
+      <p class="plan-qty">2 Bottles</p>
+      <ul>
+        <li>Actively shrinks fibroids</li>
+        <li>Improves scan results</li>
+        <li>Recommended for fibroids above 3 cm</li>
+      </ul>
+    </div>
+
+    <!-- Full Resolution Plan (BEST) -->
+    <div class="plan-card best">
+      <span class="best-tag">Most Recommended</span>
+      <h3>Full Resolution Plan</h3>
+      <p class="plan-desc">Complete treatment & prevent regrowth</p>
+      <div class="plan-price">₦60,000</div>
+      <p class="plan-qty">3 Bottles</p>
+      <ul>
+        <li>Full fibroid resolution protocol</li>
+        <li>Prevents regrowth long-term</li>
+        <li>Best for large or multiple fibroids</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="medical-note">
+    ⚠️ <strong>Medical Guidance:</strong><br>
+    Most women with fibroids above <strong>3 cm</strong> require
+    <strong>2–3 bottles</strong> for optimal and lasting results.
+  </div>
+</section>
 
   <!-- Offer + Countdown -->
   <section class="offer">
@@ -676,6 +807,28 @@ document.getElementById("orderForm").addEventListener("submit", async function(e
       timerDisplay.textContent = "Expired";
     }
   }, 1000);
+ 
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("diagnosisForm");
+  const result = document.getElementById("diagnosisResult");
+
+  if (!form) return;
+
+  form.addEventListener("change", () => {
+    const selects = form.querySelectorAll("select");
+    let completed = true;
+
+    selects.forEach(select => {
+      if (!select.value) completed = false;
+    });
+
+    if (completed) {
+      result.style.display = "block";
+    }
+  });
+});
+
+
 </script>
 
 
