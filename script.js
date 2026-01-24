@@ -208,5 +208,30 @@ if (diagnosisForm && diagnosisResult) {
   }
 
 }); // END DOMContentLoaded
+// === BASIC CONTENT PROTECTION ===
+
+// Disable right click
+document.addEventListener("contextmenu", function (e) {
+  e.preventDefault();
+});
+
+// Disable copy, cut, paste
+["copy", "cut", "paste"].forEach(function (event) {
+  document.addEventListener(event, function (e) {
+    e.preventDefault();
+  });
+});
+
+// Disable common inspect shortcuts
+document.addEventListener("keydown", function (e) {
+  if (
+    e.key === "F12" ||
+    (e.ctrlKey && e.shiftKey && ["I", "J", "C"].includes(e.key)) ||
+    (e.ctrlKey && e.key === "U")
+  ) {
+    e.preventDefault();
+  }
+});
+
 
 
