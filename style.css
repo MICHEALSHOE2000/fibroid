@@ -1,3 +1,10 @@
+body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 /* Global Styles */
 body {
   margin: 0;
@@ -950,6 +957,7 @@ input, select {
   from { transform: translateY(20px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
+
 
 
 
