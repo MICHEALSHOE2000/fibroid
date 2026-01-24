@@ -745,7 +745,197 @@ input, select {
   border-radius: 6px;
   cursor: pointer;
 }
-
+/* Self Diagnosis Section */
+.self-diagnosis {
+    background: #f9fbff;
+    padding: 50px 20px;
+    max-width: 800px;
+    margin: 40px auto;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  }
+  
+  .self-diagnosis h2 {
+    text-align: center;
+    color: #c2185b;
+    font-size: 26px;
+    margin-bottom: 8px;
+  }
+  
+  .sd-subtitle {
+    text-align: center;
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 25px;
+  }
+  
+  .self-diagnosis form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .self-diagnosis label {
+    font-weight: bold;
+    margin-top: 15px;
+    font-size: 14px;
+  }
+  
+  .self-diagnosis select {
+    padding: 12px;
+    margin-top: 6px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+  
+  .checkbox-group {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  
+  .checkbox-group label {
+    font-weight: normal;
+    font-size: 14px;
+  }
+  
+  .diagnosis-result {
+    display: none;
+    margin-top: 25px;
+    padding: 15px;
+    background: #e8f5e9;
+    color: #1b5e20;
+    border-radius: 10px;
+    font-weight: bold;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .updated-date {
+    font-size: 13px;
+    color: #666;
+    text-align: center;
+    margin-top: 6px;
+    font-style: italic;
+  }
+/* Treatment Plans */
+.treatment-plans {
+    padding: 60px 20px;
+    background: #f9fbff;
+    text-align: center;
+  }
+  
+  .treatment-plans h2 {
+    color: #c2185b;
+    font-size: 26px;
+    margin-bottom: 6px;
+  }
+  
+  .plans-subtitle {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 35px;
+  }
+  
+  .plans-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    max-width: 1000px;
+    margin: auto;
+  }
+  
+  .plan-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 25px 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    position: relative;
+    text-align: left;
+  }
+  
+  .plan-card h3 {
+    font-size: 20px;
+    margin-bottom: 4px;
+    color: #333;
+  }
+  
+  .plan-desc {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 15px;
+  }
+  
+  .plan-price {
+    font-size: 26px;
+    font-weight: bold;
+    color: #2e7d32;
+  }
+  
+  .plan-qty {
+    font-size: 14px;
+    margin-bottom: 15px;
+    color: #555;
+  }
+  
+  .plan-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .plan-card ul li {
+    padding-left: 26px;
+    margin-bottom: 10px;
+    position: relative;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .plan-card ul li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: #2e7d32;
+    font-weight: bold;
+  }
+  
+  /* Best Plan Highlight */
+  .plan-card.best {
+    border: 2px solid #c2185b;
+    transform: scale(1.03);
+  }
+  
+  .best-tag {
+    position: absolute;
+    top: -12px;
+    right: 15px;
+    background: #c2185b;
+    color: #fff;
+    padding: 5px 12px;
+    font-size: 12px;
+    border-radius: 20px;
+    font-weight: bold;
+  }
+  
+  /* Medical Note */
+  .medical-note {
+    margin-top: 35px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #fff3f6;
+    color: #7a1b3a;
+    padding: 18px;
+    border-radius: 12px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+      
 .buy-btn:hover { background: #a3154d; }
 
 .skip {
@@ -760,6 +950,7 @@ input, select {
   from { transform: translateY(20px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
+
 
 
 
