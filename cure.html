@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -358,297 +357,80 @@
     <p>If you're not satisfied with your results, we’ll refund your money. No questions asked.</p>
   </section>
  <img src="img/fb.jpg"/>
- <section class="checkout-section" id="order-form">
-    <div class="checkout-card">
-  
-      <h2>Secure Checkout</h2>
-      <p class="checkout-subtitle">
-        Complete your order below. Your information is encrypted and secure.
-      </p>
-  
-      <!-- FORM -->
-      <form 
-        id="checkoutForm"
-        action="https://formspree.io/f/xzzrvwaa"
-        method="POST"
-      >
-  
-        <label>Full Name</label>
-        <input type="text" name="name" placeholder="Jane Doe" required>
-  
-        <label>Email Address</label>
-        <input type="email" name="email" placeholder="jane@email.com" required>
-  
-        <label>Mobile Number</label>
-        <input 
-          type="tel" 
-          name="phone" 
-          placeholder="+1 555 123 4567" 
-          required
-        >
-  
-        <label>Alternate Phone Number (optional)</label>
-        <input 
-          type="tel" 
-          name="alt_phone" 
-          placeholder="+44 7700 900123"
-        >
-  
-        <label>Country</label>
-        <select name="country" required>
-          <option value="">Select country</option>
-          <option>United States</option>
-          <option>United Kingdom</option>
-          <option>Australia</option>
-          <option>Canada</option>
-          <option>Other</option>
-        </select>
-  
-        <label>Shipping Address</label>
-        <input type="text" name="address" placeholder="Street address" required>
-  
-        <div class="checkout-row">
-          <div>
-            <label>City</label>
-            <input type="text" name="city" placeholder="City" required>
-          </div>
-  
-          <div>
-            <label>ZIP / Postcode</label>
-            <input type="text" name="zip" placeholder="ZIP / Postcode" required>
-          </div>
-        </div>
-  
-        <label>Select Package</label>
-        <select name="package" required>
-          <option value="">Choose package</option>
-          <option>1 Bottle – $60</option>
-          <option>2 Bottles – $110</option>
-          <option>3 Bottles – $150 (Best Value)</option>
-        </select>
-  
-        <!-- SUBMIT BUTTON -->
-        <button type="submit" class="pay-btn">
-          🔒 Proceed to Secure Payment
-        </button>
-  
-        <p class="secure-note">
-          Payments are processed securely.
-        </p>
-  
-      </form>
-  
-    </div>
-  </section>
-  
-  <section class="faq-section">
-  <div class="faq-container">
-    <h2>Frequently Asked Questions</h2>
+ <form 
+  id="checkoutForm"
+  action="https://formspree.io/f/xzzrvwaa"
+  method="POST"
+>
 
-    <div class="faq-item">
-      <h4>How long does it take to see results?</h4>
-      <p>
-        Most women notice visible changes within 10 days, with complete results typically achieved within 30 days or less.
-        Results may vary based on individual conditions.
-      </p>
+  <!-- REDIRECT AFTER SUBMIT -->
+  <input type="hidden" name="_redirect" value="https://fibroidtreatment.xyz/tubal">
+
+  <label>Full Name</label>
+  <input type="text" name="name" placeholder="Jane Doe" required>
+
+  <label>Email Address</label>
+  <input type="email" name="email" placeholder="jane@email.com" required>
+
+  <label>Mobile Number</label>
+  <input 
+    type="tel" 
+    name="phone" 
+    placeholder="+1 555 123 4567" 
+    required
+  >
+
+  <label>Alternate Phone Number (optional)</label>
+  <input 
+    type="tel" 
+    name="alt_phone" 
+    placeholder="+44 7700 900123"
+  >
+
+  <label>Country</label>
+  <select name="country" required>
+    <option value="">Select country</option>
+    <option>United States</option>
+    <option>United Kingdom</option>
+    <option>Australia</option>
+    <option>Canada</option>
+    <option>Other</option>
+  </select>
+
+  <label>Shipping Address</label>
+  <input type="text" name="address" placeholder="Street address" required>
+
+  <div class="checkout-row">
+    <div>
+      <label>City</label>
+      <input type="text" name="city" placeholder="City" required>
     </div>
 
-    <div class="faq-item">
-      <h4>Is Utero Clear safe?</h4>
-      <p>
-        Yes. Utero Clear is made from 100% natural ingredients, clinically tested, and approved by FDA and FDA.
-        It has no known side effects and is safe for long-term use.
-      </p>
+    <div>
+      <label>ZIP / Postcode</label>
+      <input type="text" name="zip" placeholder="ZIP / Postcode" required>
     </div>
-
-    <div class="faq-item">
-      <h4>How do I take Utero Clear?</h4>
-      <p>
-        Take 2 capsules daily with water — one in the morning and one in the evening, preferably with meals.
-        Full instructions are included with your order.
-      </p>
-    </div>
-
-    <div class="faq-item">
-      <h4>Will my fibroids come back?</h4>
-      <p>
-        Utero Clear not only dissolves existing fibroids and cysts but also helps prevent recurrence
-        by addressing the root hormonal causes. Many customers report no recurrence even years after treatment.
-      </p>
-    </div>
-
-    <div class="faq-item">
-        <h4>Do you offer international shipping?</h4>
-        <p>
-          Yes. We ship to the United States, United Kingdom, Australia, and selected international destinations.
-          Orders are typically delivered within <strong>3–5 business days</strong>, depending on your location.
-          Tracking details are provided by email once your order is dispatched.
-        </p>
-        
-    </div>
-
-    <div class="faq-item">
-      <h4>What if it doesn't work for me?</h4>
-      <p>
-        We offer a 100% money-back guarantee.
-        If you don’t see results after completing the full treatment as directed,
-        simply contact us for a full refund — no questions asked.
-      </p>
-    </div>
-
-    <div class="faq-item">
-      <h4>Can I take it with other medications?</h4>
-      <p>
-        Utero Clear is natural and generally safe to use alongside other medications.
-        However, if you’re on prescription drugs, we recommend consulting your healthcare provider first.
-      </p>
-    </div>
-
-    <div class="faq-item">
-      <h4>How many bottles do I need?</h4>
-      <p>
-        We recommend 2–3 bottles for optimal results.
-        The 3-bottle package (90-day supply) is our most popular choice and offers the best value
-        for complete treatment.
-      </p>
-    </div>
-
-    <div class="faq-item">
-      <h4>What sizes of fibroids does it work on?</h4>
-      <p>
-        Utero Clear works on all types and sizes of fibroids — whether inside or outside the womb,
-        small or large. The natural ingredients target fibroids at the cellular level.
-      </p>
-    </div>
-
-    <div class="faq-item">
-      <h4>When will I receive my order?</h4>
-      <p>
-        Orders are processed immediately and delivered within 24–48 hours,
-        depending on your location. Tracking details will be provided once your order is shipped.
-      </p>
-    </div>
-
   </div>
-</section>
-   <!-- Call to Action -->
-  <div style="text-align: center; margin-top: 40px;">
-    <a href="https://wa.me/16065078887?text=I%20want%20to%20order%20Fibroid%20Solution" style="display: inline-block; background: #28a745; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-size: 18px;">✅ I’m Ready to Start My Healing – Order on WhatsApp</a>
-  </div>
-</section>
-<!-- Customer Reviews -->
-<section class="reviews-section">
-    <h2>Customer Reviews</h2>
-    <p class="reviews-subtitle">
-      Verified experiences from women who used Utero Clear as part of their wellness routine.
-    </p>
-  
-    <div class="review-card">
-      <p class="review-text">
-        “After about 8 weeks of consistent use, my follow-up scan showed noticeable improvement.
-        My cycles are lighter and the constant bloating has reduced significantly.”
-      </p>
-      <div class="review-meta">
-        <strong>Sarah M.</strong> · London, UK
-      </div>
-    </div>
-  
-    <div class="review-card">
-      <p class="review-text">
-        “I was exploring non-surgical options before committing to further treatment.
-        This fit well into my routine, and I’ve felt more balanced overall.”
-      </p>
-      <div class="review-meta">
-        <strong>Amanda R.</strong> · Austin, Texas, USA
-      </div>
-    </div>
-  
-    <div class="review-card">
-      <p class="review-text">
-        “My practitioner suggested monitoring my symptoms closely.
-        Over the last month, discomfort during my cycle has reduced and my energy levels improved.”
-      </p>
-      <div class="review-meta">
-        <strong>Chloe W.</strong> · Sydney, Australia
-      </div>
-    </div>
-  
-    <div class="review-card">
-      <p class="review-text">
-        “I appreciated the clear instructions and the fact that it doesn’t rely on hormones.
-        Shipping was smooth and communication was professional.”
-      </p>
-      <div class="review-meta">
-        <strong>Emily K.</strong> · Manchester, UK
-      </div>
-    </div>
-  
-    <p class="reviews-note">
-      Individual results may vary. These testimonials reflect personal experiences.
-    </p>
-  </section>
-  
-  
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Blives Health. All rights reserved.</p>
-  </footer>
 
-<script>
-  // COUNTDOWN TIMER (10 minutes)
-  let timeLeft = 600;
-  const timerDisplay = document.getElementById("timer");
+  <label>Select Package</label>
+  <select name="package" required>
+    <option value="">Choose package</option>
+    <option>1 Bottle – $60</option>
+    <option>2 Bottles – $110</option>
+    <option>3 Bottles – $150 (Best Value)</option>
+  </select>
 
-  const countdown = setInterval(() => {
-    let minutes = Math.floor(timeLeft / 60);
-    let seconds = timeLeft % 60;
-    timerDisplay.textContent = 
-      `${minutes}:${seconds < 10 ? "0" + seconds : seconds}`;
-    timeLeft--;
+  <button type="submit" class="pay-btn">
+    🔒 Proceed to Secure Payment
+  </button>
 
-    if (timeLeft < 0) {
-      clearInterval(countdown);
-      timerDisplay.textContent = "Expired";
-    }
-  }, 1000);
- 
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("diagnosisForm");
-  const result = document.getElementById("diagnosisResult");
+  <p class="secure-note">
+    Payments are processed securely.
+  </p>
 
-  if (!form) return;
-
-  form.addEventListener("change", () => {
-    const selects = form.querySelectorAll("select");
-    let completed = true;
-
-    selects.forEach(select => {
-      if (!select.value) completed = false;
-    });
-
-    if (completed) {
-      result.style.display = "block";
-    }
-  });
-});
-
-
-</script>
-
-
-<script src="script.js" defer></script>
-
-</body>
-</html>
+</form>
 
   
-    </div>
-  </section>
-  
-  
-
-<script>
- </section>
   <section class="faq-section">
   <div class="faq-container">
     <h2>Frequently Asked Questions</h2>
