@@ -46,6 +46,27 @@ section {
   padding: 40px 20px;
   text-align: center;
 }
+.hero-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  border: 1px solid #f2d9c9;
+  border-radius: 999px;
+  padding: 8px 16px;
+  margin-bottom: 18px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+.hero-rating .stars {
+  color: #f5a524;
+  letter-spacing: 2px;
+  font-size: 1rem;
+}
+.hero-rating p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #3d2b4c;
+}
 .hero h1 {
   font-size: 1.8em;
   margin-bottom: 10px;
@@ -72,6 +93,14 @@ section {
 }
 .cta-button:hover {
   background: #e25539;
+}
+
+@media (max-width: 600px) {
+  .hero-rating {
+    flex-direction: column;
+    border-radius: 16px;
+    gap: 2px;
+  }
 }
 
 /* Bullet Points */
