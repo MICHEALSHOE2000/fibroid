@@ -725,11 +725,20 @@ document.getElementById("orderForm").addEventListener("submit", async function(e
     headers: { 'Accept': 'application/json' }
   });
 
-  if (response.ok) {
-    window.location.href = "https://fibroidtreatment.xyz/tubal";
-  } else {
-    alert("Something went wrong. Please try again.");
+ if (response.ok) {
+
+  // Tell Meta that a real order form was successfully submitted
+  if (typeof fbq === 'function') {
+    fbq('track', 'Lead', {
+      content_name: 'Utero Clear Order Form'
+    });
   }
+
+  window.location.href = "https://fibroidtreatment.xyz/tubal";
+
+} else {
+  alert("Something went wrong. Please try again.");
+}
 });
 </script>
  </section>
