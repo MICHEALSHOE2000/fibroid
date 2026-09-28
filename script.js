@@ -30,8 +30,12 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll('a[href="#order-form"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
+        // A click starts the order flow; it is not a completed order.
+        if (typeof window.fbq === 'function') {
+          window.fbq('track', 'InitiateCheckout');
+        }
         const formSection = document.querySelector('#order-form');
-        formSection.scrollIntoView({ behavior: 'smooth' });
+        if (formSection) formSection.scrollIntoView({ behavior: 'smooth' });
       });
     });
   
@@ -212,6 +216,9 @@ exitPopup.addEventListener('click', (e) => {
         });
   
         if (response.ok) {
+          if (typeof window.fbq === 'function') {
+            window.fbq('track', 'Lead');
+          }
           alert("✅ Thank you! Your free fibroid PDF will be sent shortly.");
           exitPopup.style.display = 'none';
         } else {
